@@ -1,0 +1,33 @@
+[submodule "data/repos/bun-ffi-structs"]
+	path = data/repos/bun-ffi-structs
+	url = https://github.com/anomalyco/bun-ffi-structs.git
+[submodule "data/repos/ghostty-web"]
+	path = data/repos/ghostty-web
+	url = https://github.com/anomalyco/ghostty-web.git
+[submodule "data/repos/homebrew-tap"]
+	path = data/repos/homebrew-tap
+	url = https://github.com/anomalyco/homebrew-tap.git
+[submodule "data/repos/oc-plugin-rainbow"]
+	path = data/repos/oc-plugin-rainbow
+	url = https://github.com/anomalyco/oc-plugin-rainbow.git
+[submodule "data/repos/opencode"]
+	path = data/repos/opencode
+	url = https://github.com/anomalyco/opencode.git
+[submodule "data/repos/opencode-beta"]
+	path = data/repos/opencode-beta
+	url = https://github.com/anomalyco/opencode-beta.git
+[submodule "data/repos/opentui"]
+	path = data/repos/opentui
+	url = https://github.com/anomalyco/opentui.git
+[submodule "data/repos/provider"]
+	path = data/repos/provider
+	url = https://github.com/anomalyco/provider.git
+[submodule "data/repos/sst"]
+	path = data/repos/sst
+	url = https://github.com/anomalyco/sst.git
+[submodule "data/repos/v2"]
+	path = data/repos/v2
+	url = https://github.com/anomalyco/v2.git
+[submodule "data/repos/zed-extensions"]
+	path = data/repos/zed-extensions
+	url = https://github.com/anomalyco/zed-extensions.git
