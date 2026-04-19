@@ -1,0 +1,370 @@
+{
+ "matches": [
+  {
+   "vulnerability": {
+    "id": "GHSA-434x-w66g-qw3r",
+    "dataSource": "https://github.com/advisories/GHSA-434x-w66g-qw3r",
+    "namespace": "github:language:rust",
+    "severity": "Medium",
+    "urls": [
+     "https://github.com/advisories/GHSA-434x-w66g-qw3r"
+    ],
+    "description": "bytes has integer overflow in BytesMut::reserve",
+    "cvss": [],
+    "fix": {
+     "versions": [
+      "1.11.1"
+     ],
+     "state": "fixed"
+    },
+    "advisories": []
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-25541",
+     "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2026-25541",
+     "namespace": "nvd:cpe",
+     "severity": "High",
+     "urls": [
+      "https://github.com/tokio-rs/bytes/commit/d0293b0e35838123c51ca5dfdf468ecafee4398f",
+      "https://github.com/tokio-rs/bytes/releases/tag/v1.11.1",
+      "https://github.com/tokio-rs/bytes/security/advisories/GHSA-434x-w66g-qw3r",
+      "https://rustsec.org/advisories/RUSTSEC-2026-0007.html"
+     ],
+     "description": "Bytes is a utility library for working with bytes. From version 1.2.1 to before 1.11.1, Bytes is vulnerable to integer overflow in BytesMut::reserve. In the unique reclaim path of BytesMut::reserve, if the condition \"v_capacity >= new_cap + offset\" uses an unchecked addition. When new_cap + offset overflows usize in release builds, this condition may incorrectly pass, causing self.cap to be set to a value that exceeds the actual allocated capacity. Subsequent APIs such as spare_capacity_mut() then trust this corrupted cap value and may create out-of-bounds slices, leading to UB. This behavior is observable in release builds (integer overflow wraps), whereas debug builds panic due to overflow checks. This issue has been patched in version 1.11.1.",
+     "cvss": [
+      {
+       "source": "nvd@nist.gov",
+       "type": "Primary",
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+       "metrics": {
+        "baseScore": 7.5,
+        "exploitabilityScore": 3.9,
+        "impactScore": 3.6
+       },
+       "vendorMetadata": {}
+      },
+      {
+       "source": "security-advisories@github.com",
+       "type": "Secondary",
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N/E:P/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 5.5
+       },
+       "vendorMetadata": {}
+      }
+     ]
+    }
+   ],
+   "matchDetails": [
+    {
+     "type": "exact-direct-match",
+     "matcher": "rust-matcher",
+     "searchedBy": {
+      "language": "rust",
+      "namespace": "github:language:rust",
+      "package": {
+       "name": "bytes",
+       "version": "1.11.0"
+      }
+     },
+     "found": {
+      "versionConstraint": ">=1.2.1,<1.11.1 (unknown)",
+      "vulnerabilityID": "GHSA-434x-w66g-qw3r"
+     }
+    }
+   ],
+   "artifact": {
+    "id": "2694276e903289c1",
+    "name": "bytes",
+    "version": "1.11.0",
+    "type": "rust-crate",
+    "locations": [
+     {
+      "path": "\\packages\\desktop\\src-tauri\\Cargo.lock"
+     }
+    ],
+    "language": "rust",
+    "licenses": [],
+    "cpes": [
+     "cpe:2.3:a:bytes:bytes:1.11.0:*:*:*:*:*:*:*"
+    ],
+    "purl": "pkg:cargo/bytes@1.11.0",
+    "upstreams": []
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-wrw7-89jp-8q8g",
+    "dataSource": "https://github.com/advisories/GHSA-wrw7-89jp-8q8g",
+    "namespace": "github:language:rust",
+    "severity": "Medium",
+    "urls": [
+     "https://github.com/advisories/GHSA-wrw7-89jp-8q8g"
+    ],
+    "description": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+    "cvss": [],
+    "fix": {
+     "versions": [
+      "0.20.0"
+     ],
+     "state": "fixed"
+    },
+    "advisories": []
+   },
+   "relatedVulnerabilities": [],
+   "matchDetails": [
+    {
+     "type": "exact-direct-match",
+     "matcher": "rust-matcher",
+     "searchedBy": {
+      "language": "rust",
+      "namespace": "github:language:rust",
+      "package": {
+       "name": "glib",
+       "version": "0.18.5"
+      }
+     },
+     "found": {
+      "versionConstraint": ">=0.15.0,<0.20.0 (unknown)",
+      "vulnerabilityID": "GHSA-wrw7-89jp-8q8g"
+     }
+    }
+   ],
+   "artifact": {
+    "id": "a4da06aefeecd928",
+    "name": "glib",
+    "version": "0.18.5",
+    "type": "rust-crate",
+    "locations": [
+     {
+      "path": "\\packages\\desktop\\src-tauri\\Cargo.lock"
+     }
+    ],
+    "language": "rust",
+    "licenses": [],
+    "cpes": [
+     "cpe:2.3:a:glib:glib:0.18.5:*:*:*:*:*:*:*"
+    ],
+    "purl": "pkg:cargo/glib@0.18.5",
+    "upstreams": []
+   }
+  },
+  {
+   "vulnerability": {
+    "id": "GHSA-r6v5-fh4h-64xc",
+    "dataSource": "https://github.com/advisories/GHSA-r6v5-fh4h-64xc",
+    "namespace": "github:language:rust",
+    "severity": "Medium",
+    "urls": [
+     "https://github.com/advisories/GHSA-r6v5-fh4h-64xc"
+    ],
+    "description": "time vulnerable to stack exhaustion Denial of Service attack",
+    "cvss": [],
+    "fix": {
+     "versions": [
+      "0.3.47"
+     ],
+     "state": "fixed"
+    },
+    "advisories": []
+   },
+   "relatedVulnerabilities": [
+    {
+     "id": "CVE-2026-25727",
+     "dataSource": "https://nvd.nist.gov/vuln/detail/CVE-2026-25727",
+     "namespace": "nvd:cpe",
+     "severity": "Medium",
+     "urls": [
+      "https://github.com/time-rs/time/blob/main/CHANGELOG.md#0347-2026-02-05",
+      "https://github.com/time-rs/time/commit/1c63dc7985b8fa26bd8c689423cc56b7a03841ee",
+      "https://github.com/time-rs/time/releases/tag/v0.3.47",
+      "https://github.com/time-rs/time/security/advisories/GHSA-r6v5-fh4h-64xc"
+     ],
+     "description": "time provides date and time handling in Rust. From 0.3.6 to before 0.3.47, when user-provided input is provided to any type that parses with the RFC 2822 format, a denial of service attack via stack exhaustion is possible. The attack relies on formally deprecated and rarely-used features that are part of the RFC 2822 format used in a malicious manner. Ordinary, non-malicious input will never encounter this scenario. A limit to the depth of recursion was added in v0.3.47. From this version, an error will be returned rather than exhausting the stack.",
+     "cvss": [
+      {
+       "source": "nvd@nist.gov",
+       "type": "Primary",
+       "version": "3.1",
+       "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+       "metrics": {
+        "baseScore": 6.5,
+        "exploitabilityScore": 2.8,
+        "impactScore": 3.6
+       },
+       "vendorMetadata": {}
+      },
+      {
+       "source": "security-advisories@github.com",
+       "type": "Secondary",
+       "version": "4.0",
+       "vector": "CVSS:4.0/AV:N/AC:H/AT:N/PR:L/UI:A/VC:N/VI:N/VA:H/SC:N/SI:N/SA:H/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+       "metrics": {
+        "baseScore": 6.8
+       },
+       "vendorMetadata": {}
+      }
+     ]
+    }
+   ],
+   "matchDetails": [
+    {
+     "type": "exact-direct-match",
+     "matcher": "rust-matcher",
+     "searchedBy": {
+      "language": "rust",
+      "namespace": "github:language:rust",
+      "package": {
+       "name": "time",
+       "version": "0.3.44"
+      }
+     },
+     "found": {
+      "versionConstraint": ">=0.3.6,<0.3.47 (unknown)",
+      "vulnerabilityID": "GHSA-r6v5-fh4h-64xc"
+     }
+    }
+   ],
+   "artifact": {
+    "id": "752e87d201d0e74f",
+    "name": "time",
+    "version": "0.3.44",
+    "type": "rust-crate",
+    "locations": [
+     {
+      "path": "\\packages\\desktop\\src-tauri\\Cargo.lock"
+     }
+    ],
+    "language": "rust",
+    "licenses": [],
+    "cpes": [
+     "cpe:2.3:a:time:time:0.3.44:*:*:*:*:*:*:*"
+    ],
+    "purl": "pkg:cargo/time@0.3.44",
+    "upstreams": []
+   }
+  }
+ ],
+ "source": {
+  "type": "directory",
+  "target": "D:\\develop\\code\\classes\\IngenierÃ­a de datos\\ING.Datos-tarea3\\data\\repos\\opencode"
+ },
+ "distro": {
+  "name": "",
+  "version": "",
+  "idLike": null
+ },
+ "descriptor": {
+  "name": "grype",
+  "version": "0.76.0",
+  "configuration": {
+   "output": [
+    "json"
+   ],
+   "file": "",
+   "distro": "",
+   "add-cpes-if-none": false,
+   "output-template-file": "",
+   "check-for-app-update": true,
+   "only-fixed": false,
+   "only-notfixed": false,
+   "ignore-wontfix": "",
+   "platform": "",
+   "search": {
+    "scope": "squashed",
+    "unindexed-archives": false,
+    "indexed-archives": true
+   },
+   "ignore": [
+    {
+     "vulnerability": "",
+     "reason": "",
+     "namespace": "",
+     "fix-state": "",
+     "package": {
+      "name": "kernel-headers",
+      "version": "",
+      "language": "",
+      "type": "rpm",
+      "location": "",
+      "upstream-name": "kernel"
+     },
+     "vex-status": "",
+     "vex-justification": "",
+     "match-type": "exact-indirect-match"
+    }
+   ],
+   "exclude": [],
+   "db": {
+    "cache-dir": "C:\\Users\\belen\\AppData\\Local\\cache/grype/db",
+    "update-url": "https://toolbox-data.anchore.io/grype/databases/listing.json",
+    "ca-cert": "",
+    "auto-update": true,
+    "validate-by-hash-on-start": false,
+    "validate-age": false,
+    "max-allowed-built-age": 432000000000000,
+    "update-available-timeout": 30000000000,
+    "update-download-timeout": 120000000000
+   },
+   "externalSources": {
+    "enable": false,
+    "maven": {
+     "searchUpstreamBySha1": true,
+     "baseUrl": "https://search.maven.org/solrsearch/select"
+    }
+   },
+   "match": {
+    "java": {
+     "using-cpes": false
+    },
+    "dotnet": {
+     "using-cpes": false
+    },
+    "golang": {
+     "using-cpes": false,
+     "always-use-cpe-for-stdlib": true
+    },
+    "javascript": {
+     "using-cpes": false
+    },
+    "python": {
+     "using-cpes": false
+    },
+    "ruby": {
+     "using-cpes": false
+    },
+    "rust": {
+     "using-cpes": false
+    },
+    "stock": {
+     "using-cpes": true
+    }
+   },
+   "fail-on-severity": "",
+   "registry": {
+    "insecure-skip-tls-verify": false,
+    "insecure-use-http": false,
+    "auth": null,
+    "ca-cert": ""
+   },
+   "show-suppressed": false,
+   "by-cve": false,
+   "name": "",
+   "default-image-pull-source": "",
+   "vex-documents": [],
+   "vex-add": [],
+   "match-upstream-kernel-headers": false
+  },
+  "db": {
+   "built": "2026-03-09T00:31:20Z",
+   "schemaVersion": 5,
+   "location": "C:\\Users\\belen\\AppData\\Local\\cache/grype/db/5",
+   "checksum": "sha256:a65e27aecbbb2cd6671f5da84c16db7e9c60f0114075e6ae9bcc71f466460a0c",
+   "error": null
+  },
+  "timestamp": "2026-04-19T19:04:17.4616565-04:00"
+ }
+}

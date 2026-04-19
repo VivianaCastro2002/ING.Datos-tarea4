@@ -1,0 +1,60 @@
+{
+  "total_vulnerabilities": 4,
+  "vulnerabilities_by_severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 4
+  },
+  "vulnerabilities": [
+    {
+      "package_name": "jws",
+      "current_version": "3.2.2",
+      "vuln_id": "GHSA-869p-cjfg-cm3x",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "auth0/node-jws Improperly Verifies HMAC Signature",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "qs",
+      "current_version": "6.13.0",
+      "vuln_id": "GHSA-6rw7-vpxm-498p",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "qs's arrayLimit bypass in its bracket notation allows DoS via memory exhaustion",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "qs",
+      "current_version": "6.13.0",
+      "vuln_id": "GHSA-w7fw-mjwx-w883",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "qs's arrayLimit bypass in comma parsing allows denial of service",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "rollup",
+      "current_version": "4.52.5",
+      "vuln_id": "GHSA-mw96-cpmx-2vgc",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "Rollup 4 has Arbitrary File Write via Path Traversal",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    }
+  ],
+  "grype_metadata": {
+    "grype_version": "unknown",
+    "db_location": "",
+    "scanned_path": "D:\\develop\\code\\classes\\IngenierÃ­a de datos\\ING.Datos-tarea3\\data\\repos\\zed-extensions"
+  }
+}

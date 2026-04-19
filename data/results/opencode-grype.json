@@ -1,0 +1,49 @@
+{
+  "total_vulnerabilities": 3,
+  "vulnerabilities_by_severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 3
+  },
+  "vulnerabilities": [
+    {
+      "package_name": "bytes",
+      "current_version": "1.11.0",
+      "vuln_id": "GHSA-434x-w66g-qw3r",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "bytes has integer overflow in BytesMut::reserve",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "glib",
+      "current_version": "0.18.5",
+      "vuln_id": "GHSA-wrw7-89jp-8q8g",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "Unsoundness in `Iterator` and `DoubleEndedIterator` impls for `glib::VariantStrIter`",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "time",
+      "current_version": "0.3.44",
+      "vuln_id": "GHSA-r6v5-fh4h-64xc",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "time vulnerable to stack exhaustion Denial of Service attack",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    }
+  ],
+  "grype_metadata": {
+    "grype_version": "unknown",
+    "db_location": "",
+    "scanned_path": "D:\\develop\\code\\classes\\IngenierÃ­a de datos\\ING.Datos-tarea3\\data\\repos\\opencode"
+  }
+}

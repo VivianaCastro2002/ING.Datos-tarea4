@@ -1,0 +1,69 @@
+{
+  "repositories": [
+    {
+      "url": "https://github.com/anomalyco/bun.git",
+      "path": "data/repos/bun",
+      "ref": "main"
+    },
+    {
+      "url": "https://github.com/anomalyco/bun-ffi-structs.git",
+      "path": "data/repos/bun-ffi-structs",
+      "ref": "main"
+    },
+    {
+      "url": "https://github.com/anomalyco/ghostty-web.git",
+      "path": "data/repos/ghostty-web",
+      "ref": "main"
+    },
+    {
+      "url": "https://github.com/anomalyco/homebrew-tap.git",
+      "path": "data/repos/homebrew-tap",
+      "ref": "master"
+    },
+    {
+      "url": "https://github.com/anomalyco/models.dev.git",
+      "path": "data/repos/models.dev",
+      "ref": "dev"
+    },
+    {
+      "url": "https://github.com/anomalyco/oc-plugin-rainbow.git",
+      "path": "data/repos/oc-plugin-rainbow",
+      "ref": "main"
+    },
+    {
+      "url": "https://github.com/anomalyco/opencode.git",
+      "path": "data/repos/opencode",
+      "ref": "dev"
+    },
+    {
+      "url": "https://github.com/anomalyco/opencode-beta.git",
+      "path": "data/repos/opencode-beta",
+      "ref": "main"
+    },
+    {
+      "url": "https://github.com/anomalyco/opentui.git",
+      "path": "data/repos/opentui",
+      "ref": "main"
+    },
+    {
+      "url": "https://github.com/anomalyco/provider.git",
+      "path": "data/repos/provider",
+      "ref": "master"
+    },
+    {
+      "url": "https://github.com/anomalyco/sst.git",
+      "path": "data/repos/sst",
+      "ref": "dev"
+    },
+    {
+      "url": "https://github.com/anomalyco/v2.git",
+      "path": "data/repos/v2",
+      "ref": "master"
+    },
+    {
+      "url": "https://github.com/anomalyco/zed-extensions.git",
+      "path": "data/repos/zed-extensions",
+      "ref": "main"
+    }
+  ]
+}
