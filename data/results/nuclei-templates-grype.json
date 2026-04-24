@@ -1,0 +1,170 @@
+{
+  "total_vulnerabilities": 14,
+  "vulnerabilities_by_severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 14
+  },
+  "vulnerabilities": [
+    {
+      "package_name": "certifi",
+      "current_version": "2023.7.22",
+      "vuln_id": "GHSA-248v-346w-9cwc",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "Certifi removes GLOBALTRUST root certificate",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "requests",
+      "current_version": "2.28.1",
+      "vuln_id": "GHSA-j8r2-6x86-q33q",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "Unintended leak of Proxy-Authorization header in requests",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "urllib3",
+      "current_version": "1.26.13",
+      "vuln_id": "GHSA-v845-jxx5-vc9f",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "`Cookie` HTTP header isn't stripped on cross-origin redirects",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "idna",
+      "current_version": "3.4",
+      "vuln_id": "GHSA-jjg7-2v4v-x38h",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "Internationalized Domain Names in Applications (IDNA) vulnerable to denial of service from specially crafted inputs to idna.encode",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "markdown",
+      "current_version": "3.4.1",
+      "vuln_id": "GHSA-5wmx-573v-2qwq",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "Python-Markdown has an Uncaught Exception",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "urllib3",
+      "current_version": "1.26.13",
+      "vuln_id": "GHSA-34jh-p97f-mpxf",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "urllib3's Proxy-Authorization request header isn't stripped during cross-origin redirects",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "requests",
+      "current_version": "2.28.1",
+      "vuln_id": "GHSA-9hjg-9r4m-mvj7",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "Requests vulnerable to .netrc credentials leak via malicious URLs",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "urllib3",
+      "current_version": "1.26.13",
+      "vuln_id": "GHSA-pq67-6m6q-mj2v",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "urllib3 redirects are not disabled when retries are disabled on PoolManager instantiation",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "urllib3",
+      "current_version": "1.26.13",
+      "vuln_id": "GHSA-gm62-xv2j-4w53",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "urllib3 allows an unbounded number of links in the decompression chain",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "urllib3",
+      "current_version": "1.26.13",
+      "vuln_id": "GHSA-2xpw-w6gg-jr37",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "urllib3 streaming API improperly handles highly compressed data",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "urllib3",
+      "current_version": "1.26.13",
+      "vuln_id": "GHSA-g4mx-q9vg-27p4",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "urllib3's request body not stripped after redirect from 303 status changes request method to GET",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "urllib3",
+      "current_version": "1.26.13",
+      "vuln_id": "GHSA-38jv-5279-wg99",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "Decompression-bomb safeguards bypassed when following HTTP redirects (streaming API)",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "requests",
+      "current_version": "2.28.1",
+      "vuln_id": "GHSA-9wx4-h78v-vm56",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "Requests `Session` object does not verify requests after making first request with verify=False",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "requests",
+      "current_version": "2.28.1",
+      "vuln_id": "GHSA-gc5v-m9x4-r6x2",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "Requests has Insecure Temp File Reuse in its extract_zipped_paths() utility function",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    }
+  ],
+  "grype_metadata": {
+    "grype_version": "unknown",
+    "db_location": "",
+    "scanned_path": "D:\\Documentos(D)\\U\\Progra\\ING.Datos-tarea4\\data\\repos\\nuclei-templates"
+  }
+}

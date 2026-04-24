@@ -51,15 +51,29 @@ ING.Datos-tarea4/
 
 ## ⚙️ Pre-requisitos
 
-- **Python 3.10+** (librerías: `pandas`, `matplotlib`, `seaborn`, `pyyaml`)
-- **Git**
-- CLIs en PATH: [`syft`](https://github.com/anchore/syft), [`grype`](https://github.com/anchore/grype), [`codeql`](https://github.com/github/codeql-cli-binaries) *(opcional)*
+1. **Python 3.10+**: Instala las dependencias necesarias (`pandas`, `matplotlib`, `seaborn`, `pyyaml`, `jupyter`):
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. **Git**: Necesario para clonar los repositorios.
+3. **Syft y Grype**: Herramientas de CLI (CLI tools) para generar los SBOMs y descubrir vulnerabilidades.
+   - En **Windows** (usando PowerShell / WinGet):
+     ```powershell
+     winget install Anchore.Syft
+     winget install Anchore.Grype
+     ```
+     *(Es necesario **reiniciar la terminal** después para actualizar el PATH)*
+   - En **macOS/Linux**:
+     ```bash
+     curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+     curl -sSfL https://raw.githubusercontent.com/anchore/grype/main/install.sh | sh -s -- -b /usr/local/bin
+     ```
 
 ---
 
 ## 🚀 Pipeline de Análisis
 
-Ejecutar en orden desde la raíz del proyecto:
+**Importante:** Debes correr los pasos del pipeline al menos una vez para generar los datos que consumirá el Jupyter Notebook. Ejecuta en orden desde la raíz del proyecto:
 
 ### 1. Clonar los Repositorios
 Sincroniza los repos de `data/repos.json` en `data/repos/` (elimina anteriores si los hay):
@@ -96,13 +110,15 @@ python scripts/generate_codeql.py
 
 ## 📊 Análisis en Jupyter Notebook
 
-Los datos generados en `data/results/` se analizan en el notebook:
+> ⚠️ **REQUISITO PREVIO**: Asegúrate de haber ejecutado los scripts del pipeline (al menos los pasos 1, 2 y 3) antes de abrir el notebook. Si no lo haces, Pandas arrojará un error `KeyError: 'repositorio'` porque no encontrará los JSONs en la carpeta `data/results/`.
+
+Una vez generados los resultados en `data/results/`, analízalos abriendo el entorno de Jupyter:
 
 ```bash
 jupyter notebook
 ```
 
-Abrir y ejecutar celda a celda: **`nbs/analisis_cuantitativo.ipynb`**
+Abre y ejecuta celda a celda: **`nbs/analisis_cuantitativo.ipynb`**
 
 El notebook contiene:
 - **Dimensión cuantitativa**: distribución de CVEs por severidad, heatmap comparativo entre repos, ecosistemas más vulnerables, top paquetes con mayor riesgo, hallazgos CI/CD por tipo de regla.

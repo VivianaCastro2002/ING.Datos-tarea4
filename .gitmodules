@@ -31,3 +31,18 @@
 [submodule "data/repos/zed-extensions"]
 	path = data/repos/zed-extensions
 	url = https://github.com/anomalyco/zed-extensions.git
+[submodule "data/repos/nuclei"]
+	path = data/repos/nuclei
+	url = https://github.com/projectdiscovery/nuclei.git
+[submodule "data/repos/katana"]
+	path = data/repos/katana
+	url = https://github.com/projectdiscovery/katana.git
+[submodule "data/repos/subfinder"]
+	path = data/repos/subfinder
+	url = https://github.com/projectdiscovery/subfinder.git
+[submodule "data/repos/nuclei-templates"]
+	path = data/repos/nuclei-templates
+	url = https://github.com/projectdiscovery/nuclei-templates.git
+[submodule "data/repos/httpx"]
+	path = data/repos/httpx
+	url = https://github.com/projectdiscovery/httpx.git

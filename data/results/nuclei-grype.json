@@ -1,0 +1,38 @@
+{
+  "total_vulnerabilities": 2,
+  "vulnerabilities_by_severity": {
+    "critical": 0,
+    "high": 0,
+    "medium": 0,
+    "low": 2
+  },
+  "vulnerabilities": [
+    {
+      "package_name": "github.com/docker/docker",
+      "current_version": "v28.3.3+incompatible",
+      "vuln_id": "GHSA-pxq6-2prw-chj9",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "Moby has an Off-by-one error in its plugin privilege validation",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    },
+    {
+      "package_name": "github.com/docker/docker",
+      "current_version": "v28.3.3+incompatible",
+      "vuln_id": "GHSA-x744-4wpc-v9h2",
+      "vuln_severity": "low",
+      "fix_version": "N/A",
+      "message": "Moby has AuthZ plugin bypass when provided oversized request bodies",
+      "cwe": "N/A",
+      "cvss_score": 0,
+      "type": "vulnerability"
+    }
+  ],
+  "grype_metadata": {
+    "grype_version": "unknown",
+    "db_location": "",
+    "scanned_path": "D:\\Documentos(D)\\U\\Progra\\ING.Datos-tarea4\\data\\repos\\nuclei"
+  }
+}
