@@ -1,83 +1,119 @@
-# Tarea 3: SBOMs y Análisis de Vulnerabilidades 🛡️
+# Tarea 4: Análisis de Vulnerabilidades en Repositorios de Software 🛡️
 
-[![Herramientas](https://img.shields.io/badge/Tools-Syft%20%7C%20Grype%20%7C%20CodeQL-blue.svg)]()
+[![Herramientas](https://img.shields.io/badge/Tools-Syft%20%7C%20Grype%20%7C%20CodeQL-blue.svg)](https://github.com/anchore)
+[![CI/CD](https://img.shields.io/badge/CI%2FCD-GitHub_Actions_Audit-yellow.svg)]()
 [![Jupyter Notebook](https://img.shields.io/badge/Análisis-Jupyter_Notebook-orange.svg)]()
 
-Este proyecto automatiza por completo la evaluación de seguridad y la de deuda técnica (rastreo de Componentes de Software Abierto) de los repositorios activos de una organización mediante la generación de **SBOMs (Software Bill of Materials)** y un análisis detallado de vulnerabilidades dinámicas y estáticas.
+Este proyecto evalúa el estado de seguridad de una organización en GitHub a través de tres dimensiones integradas: **análisis de código fuente**, **inventario de dependencias** y **revisión de configuraciones CI/CD**. Los resultados se consolidan en un dataset estructurado y se analizan en un notebook con dimensiones cuantitativa y cualitativa.
 
-La organización auditada para este caso de estudio es **[`anomalyco`](https://github.com/anomalyco)** (13 repositorios activos).
+La organización auditada es **[`projectdiscovery`](https://github.com/projectdiscovery)** — los 5 repositorios más populares por ⭐ estrellas.
+
+---
+
+## 🎯 Justificación de la Organización
+
+**ProjectDiscovery** fue seleccionada por su conexión directa con el caso de estudio **"GitHub Fake PoC Repos" (2024)**:
+
+- Sus herramientas (`nuclei`, `httpx`, `subfinder`, etc.) son las que los atacantes **clonan, inyectan con malware y redistribuyen** haciéndose pasar por versiones legítimas — exactamente el patrón documentado por Uptycs y Apiiro.
+- Alta relevancia observable: `nuclei` supera los **28,000 ⭐**, con uso masivo en la comunidad de seguridad ofensiva y defensiva.
+- Los repos son herramientas de código real en Go, lo que permite un análisis completo de las tres dimensiones (código, dependencias, CI/CD).
+
+| Repo | ⭐ Stars | Lenguaje | Branch |
+|---|---|---|---|
+| `nuclei` | 28,056 | Go | `dev` |
+| `katana` | 16,575 | Go | `dev` |
+| `subfinder` | 13,496 | Go | `dev` |
+| `nuclei-templates` | 12,226 | JavaScript/YAML | `main` |
+| `httpx` | 9,849 | Go | `dev` |
 
 ---
 
 ## 🏗️ Estructura del Proyecto
 
 ```plaintext
-ING.Datos-tarea3/
+ING.Datos-tarea4/
 ├── data/
-│   ├── repos/                 # Rutas donde se descargan los submódulos Git (repos)
-│   ├── results/               # Resultados automatizados del escaneo (archivos JSON)
-│   └── repos.json             # Manifiesto configurado con los target repos de anomalyco
+│   ├── repos/                 # Repositorios clonados como submódulos Git
+│   ├── results/               # JSONs generados por el pipeline de análisis
+│   └── repos.json             # Manifiesto con los 5 repos objetivo de projectdiscovery
 ├── nbs/
-│   ├── analisis_cuantitativo.ipynb # Notebook central con el análisis de resultados  
-├── scripts/                   # Automatización
-│   ├── add_submodules.py      # Clona/Descarga de manera rápida (depth=1) los repos
-│   ├── generate_sboms.py      # Usa 'Syft' para extraer los paquetes/dependencias
-│   ├── generate_grype.py      # Usa 'Grype' para validar los CVEs y parches perdidos
-│   └── generate_codeql.py     # Usa 'CodeQL' para análisis avanzado de código
+│   └── analisis_cuantitativo.ipynb  # Notebook con análisis cuantitativo y cualitativo
+├── scripts/                   # Pipeline de automatización
+│   ├── add_submodules.py      # Clona/sincroniza los repos objetivo (depth=1)
+│   ├── generate_sboms.py      # Genera SBOMs con Syft (inventario de dependencias)
+│   ├── generate_grype.py      # Escanea CVEs con Grype y normaliza resultados
+│   ├── generate_cicd.py       # Audita workflows de GitHub Actions por configuraciones inseguras
+│   └── generate_codeql.py     # Análisis estático avanzado con CodeQL (opcional)
 └── README.md
 ```
 
+---
+
 ## ⚙️ Pre-requisitos
-Para poder correr localmente los módulos necesitarás:
-- **Python 3.10+** (Librerías de análisis: `pandas`, `matplotlib`, `seaborn`)
+
+- **Python 3.10+** (librerías: `pandas`, `matplotlib`, `seaborn`, `pyyaml`)
 - **Git**
-- Entorno de comandos (PowerShell / Bash) con los ejecutables (CLI) de `syft`, `grype` y `codeql` instalados en su variable PATH.
+- CLIs en PATH: [`syft`](https://github.com/anchore/syft), [`grype`](https://github.com/anchore/grype), [`codeql`](https://github.com/github/codeql-cli-binaries) *(opcional)*
 
-## 🚀 Uso e Implementación
+---
 
-Para asegurar la reproducibilidad del entorno y obtener de vuelta los JSON en la carpeta `data/results/`, se ejecuta la cadena de automatización siguiendo estos pasos dentro de la raíz del proyecto:
+## 🚀 Pipeline de Análisis
+
+Ejecutar en orden desde la raíz del proyecto:
 
 ### 1. Clonar los Repositorios
-Sincroniza y descarga temporalmente los repositorios objetivo de `data/repos.json` dentro de `data/repos/`:
+Sincroniza los repos de `data/repos.json` en `data/repos/` (elimina anteriores si los hay):
 ```bash
 python scripts/add_submodules.py
 ```
 
 ### 2. Extracción de Software (SBOM)
-Extraemos todos y cada uno de los ecosistemas (npm, cargo, python) con Syft:
+Genera un inventario completo de paquetes y dependencias por ecosistema (Go, npm, pip…):
 ```bash
 python scripts/generate_sboms.py
 ```
 
-### 3. Escáner de Dependencias
-Escanea la versión de las librerías levantadas comparándolas con bases de datos estandarizadas de CVEs. Generará el crudo y el json normalizado `*-grype.json`:
+### 3. Escáner de Dependencias (CVEs)
+Compara las versiones de las librerías contra bases de datos de CVEs estandarizadas. Genera `*-grype-raw.json` y `*-grype.json` normalizado:
 ```bash
 python scripts/generate_grype.py
 ```
-*(Se recomienda exportar `GRYPE_DB_VALIDATE_AGE=false` si se trabaja en local con una base desactualizada de más de 5 días).*
+*(Exportar `GRYPE_DB_VALIDATE_AGE=false` si la base de datos local tiene más de 5 días.)*
 
-### 4. CodeQL (Opcional - Análisis Profundo de Código)
-Si tu entorno soporta la inmensa carga de auto-compilado de código C++ / GO / TypeScript, puedes indexar las bases de datos:
+### 4. Auditoría de CI/CD
+Analiza los workflows de GitHub Actions (`.github/workflows/*.yml`) en busca de configuraciones inseguras: acciones sin SHA fijado, permisos excesivos, secretos expuestos en logs, `pull_request_target` con checkout, entre otros:
+```bash
+python scripts/generate_cicd.py
+```
+
+### 5. CodeQL — Análisis Estático (Opcional)
+Indexa y analiza el código fuente Go en busca de vulnerabilidades de código. Requiere recursos significativos:
 ```bash
 python scripts/generate_codeql.py
 ```
 
-## 📊 Análisis Cuantitativo
+---
 
-Toda la inteligencia extraída se decanta en un ambiente visual y reproducible. La tercera parte del proceso la puedes validar abriendo el entorno de **Jupyter Notebook**:
+## 📊 Análisis en Jupyter Notebook
 
-1. Lanza Jupyter:
+Los datos generados en `data/results/` se analizan en el notebook:
+
 ```bash
 jupyter notebook
 ```
-2. Ejecuta celda a celda el archivo: **`nbs/analisis_cuantitativo.ipynb`**.
 
-En el cuaderno encontrarás gráficos detallados comparando ecosistemas, repositorios más riesgosos y esquemas de alertas tempranas divididos en niveles Crítico, Alto, Medio y Bajo.
+Abrir y ejecutar celda a celda: **`nbs/analisis_cuantitativo.ipynb`**
+
+El notebook contiene:
+- **Dimensión cuantitativa**: distribución de CVEs por severidad, heatmap comparativo entre repos, ecosistemas más vulnerables, top paquetes con mayor riesgo, hallazgos CI/CD por tipo de regla.
+- **Dimensión cualitativa**: interpretación de patrones, relación con el caso Fake PoC Repos (2024), análisis de causas locales vs. sistémicas del ecosistema Go/GitHub Actions, y conclusiones sobre la cadena de suministro de software.
 
 ---
+
 **Integrantes:**
 - Belén Bravo
 - Viviana Castro
 - Valentina Cifuentes
 
 **Asignatura:** Ingeniería de Datos.
+
