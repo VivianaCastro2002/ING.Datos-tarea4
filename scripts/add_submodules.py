@@ -142,13 +142,16 @@ def sync_submodules():
     # Then: add submodules from repos.json
     add_submodules(repo_root, repos_data)
     
-    # Finally: initialize and update all submodules
+    # Finally: initialize and update ONLY the submodules listed in repos.json
+    # NOTE: --recursive is intentionally omitted to avoid cloning nested submodules
+    # inside each repo (which can cascade into hundreds of additional downloads).
     print("\nInitializing submodule directories...")
-    _run_git_command(
-        ["git", "submodule", "update", "--init", "--recursive"],
-        repo_root,
-        "Failed to update submodules"
-    )
+    for path in desired_paths:
+        _run_git_command(
+            ["git", "submodule", "update", "--init", path],
+            repo_root,
+            f"Failed to update submodule {path}"
+        )
     
     print("\nOK Submodule sync complete!")
     print("Note: Changes are NOT automatically committed. Use 'git status' to see dirty state.")
