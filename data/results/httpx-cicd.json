@@ -1,0 +1,223 @@
+{
+  "repositorio": "httpx",
+  "total_workflows": 10,
+  "total_hallazgos": 18,
+  "hallazgos_por_severidad": {
+    "critical": 0,
+    "high": 10,
+    "medium": 8,
+    "low": 0,
+    "info": 0
+  },
+  "hallazgos_por_regla": {
+    "action_no_sha_pin": 9,
+    "excessive_permissions": 8,
+    "unversioned_action": 1
+  },
+  "workflows_analizados": [
+    {
+      "nombre": "auto-merge.yaml",
+      "hallazgos": 1
+    },
+    {
+      "nombre": "build-test.yml",
+      "hallazgos": 1
+    },
+    {
+      "nombre": "codeql-analysis.yml",
+      "hallazgos": 1
+    },
+    {
+      "nombre": "compatibility-checks.yaml",
+      "hallazgos": 2
+    },
+    {
+      "nombre": "dep-auto-merge.yml",
+      "hallazgos": 1
+    },
+    {
+      "nombre": "dockerhub-push.yml",
+      "hallazgos": 5
+    },
+    {
+      "nombre": "functional-test.yml",
+      "hallazgos": 1
+    },
+    {
+      "nombre": "release-binary.yml",
+      "hallazgos": 2
+    },
+    {
+      "nombre": "release-test.yml",
+      "hallazgos": 2
+    },
+    {
+      "nombre": "stale.yaml",
+      "hallazgos": 2
+    }
+  ],
+  "hallazgos": [
+    {
+      "regla": "action_no_sha_pin",
+      "severidad": "high",
+      "archivo": "auto-merge.yaml",
+      "job": "auto-merge",
+      "step": "ahmadnassri/action-dependabot-auto-merge@v2",
+      "detalle": "uses: ahmadnassri/action-dependabot-auto-merge@v2  →  ref 'v2' no es SHA",
+      "descripcion": "Acción de tercero sin SHA commit fijado. Un atacante que comprometa el repositorio de la acción puede inyectar código malicioso sin cambiar el tag, como ocurrió en el ataque a tj-actions/changed-files (2025)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "build-test.yml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "codeql-analysis.yml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "compatibility-checks.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "unversioned_action",
+      "severidad": "high",
+      "archivo": "compatibility-checks.yaml",
+      "job": "check",
+      "step": "projectdiscovery/actions/setup/go/compat-checks@master",
+      "detalle": "uses: projectdiscovery/actions/setup/go/compat-checks@master  →  ref mutable 'master'",
+      "descripcion": "Acción referenciada por rama mutable (@main, @master, @latest). Cualquier commit posterior en esa rama modifica el comportamiento del workflow sin revisión explícita — vector de supply-chain attack."
+    },
+    {
+      "regla": "action_no_sha_pin",
+      "severidad": "high",
+      "archivo": "dep-auto-merge.yml",
+      "job": "automerge",
+      "step": "ahmadnassri/action-dependabot-auto-merge@v2",
+      "detalle": "uses: ahmadnassri/action-dependabot-auto-merge@v2  →  ref 'v2' no es SHA",
+      "descripcion": "Acción de tercero sin SHA commit fijado. Un atacante que comprometa el repositorio de la acción puede inyectar código malicioso sin cambiar el tag, como ocurrió en el ataque a tj-actions/changed-files (2025)."
+    },
+    {
+      "regla": "action_no_sha_pin",
+      "severidad": "high",
+      "archivo": "dockerhub-push.yml",
+      "job": "docker",
+      "step": "Set up QEMU",
+      "detalle": "uses: docker/setup-qemu-action@v2  →  ref 'v2' no es SHA",
+      "descripcion": "Acción de tercero sin SHA commit fijado. Un atacante que comprometa el repositorio de la acción puede inyectar código malicioso sin cambiar el tag, como ocurrió en el ataque a tj-actions/changed-files (2025)."
+    },
+    {
+      "regla": "action_no_sha_pin",
+      "severidad": "high",
+      "archivo": "dockerhub-push.yml",
+      "job": "docker",
+      "step": "Set up Docker Buildx",
+      "detalle": "uses: docker/setup-buildx-action@v2  →  ref 'v2' no es SHA",
+      "descripcion": "Acción de tercero sin SHA commit fijado. Un atacante que comprometa el repositorio de la acción puede inyectar código malicioso sin cambiar el tag, como ocurrió en el ataque a tj-actions/changed-files (2025)."
+    },
+    {
+      "regla": "action_no_sha_pin",
+      "severidad": "high",
+      "archivo": "dockerhub-push.yml",
+      "job": "docker",
+      "step": "Login to DockerHub",
+      "detalle": "uses: docker/login-action@v2  →  ref 'v2' no es SHA",
+      "descripcion": "Acción de tercero sin SHA commit fijado. Un atacante que comprometa el repositorio de la acción puede inyectar código malicioso sin cambiar el tag, como ocurrió en el ataque a tj-actions/changed-files (2025)."
+    },
+    {
+      "regla": "action_no_sha_pin",
+      "severidad": "high",
+      "archivo": "dockerhub-push.yml",
+      "job": "docker",
+      "step": "Build and push",
+      "detalle": "uses: docker/build-push-action@v4  →  ref 'v4' no es SHA",
+      "descripcion": "Acción de tercero sin SHA commit fijado. Un atacante que comprometa el repositorio de la acción puede inyectar código malicioso sin cambiar el tag, como ocurrió en el ataque a tj-actions/changed-files (2025)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "dockerhub-push.yml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "functional-test.yml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "action_no_sha_pin",
+      "severidad": "high",
+      "archivo": "release-binary.yml",
+      "job": "release",
+      "step": "Create release on GitHub",
+      "detalle": "uses: goreleaser/goreleaser-action@v4  →  ref 'v4' no es SHA",
+      "descripcion": "Acción de tercero sin SHA commit fijado. Un atacante que comprometa el repositorio de la acción puede inyectar código malicioso sin cambiar el tag, como ocurrió en el ataque a tj-actions/changed-files (2025)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "release-binary.yml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "action_no_sha_pin",
+      "severidad": "high",
+      "archivo": "release-test.yml",
+      "job": "release-test",
+      "step": "release test",
+      "detalle": "uses: goreleaser/goreleaser-action@v4  →  ref 'v4' no es SHA",
+      "descripcion": "Acción de tercero sin SHA commit fijado. Un atacante que comprometa el repositorio de la acción puede inyectar código malicioso sin cambiar el tag, como ocurrió en el ataque a tj-actions/changed-files (2025)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "release-test.yml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "action_no_sha_pin",
+      "severidad": "high",
+      "archivo": "stale.yaml",
+      "job": "stale",
+      "step": "actions/stale@v9",
+      "detalle": "uses: actions/stale@v9  →  ref 'v9' no es SHA",
+      "descripcion": "Acción de tercero sin SHA commit fijado. Un atacante que comprometa el repositorio de la acción puede inyectar código malicioso sin cambiar el tag, como ocurrió en el ataque a tj-actions/changed-files (2025)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "stale.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    }
+  ]
+}

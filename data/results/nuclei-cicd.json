@@ -1,0 +1,216 @@
+{
+  "repositorio": "nuclei",
+  "total_workflows": 13,
+  "total_hallazgos": 16,
+  "hallazgos_por_severidad": {
+    "critical": 0,
+    "high": 4,
+    "medium": 12,
+    "low": 0,
+    "info": 0
+  },
+  "hallazgos_por_regla": {
+    "excessive_permissions": 12,
+    "action_no_sha_pin": 4
+  },
+  "workflows_analizados": [
+    {
+      "nombre": "auto-merge.yaml",
+      "hallazgos": 0
+    },
+    {
+      "nombre": "compat-checks.yaml",
+      "hallazgos": 1
+    },
+    {
+      "nombre": "flamegraph.yaml",
+      "hallazgos": 1
+    },
+    {
+      "nombre": "fuzz.yaml",
+      "hallazgos": 1
+    },
+    {
+      "nombre": "generate-docs.yaml",
+      "hallazgos": 1
+    },
+    {
+      "nombre": "generate-pgo.yaml",
+      "hallazgos": 1
+    },
+    {
+      "nombre": "govulncheck.yaml",
+      "hallazgos": 1
+    },
+    {
+      "nombre": "memogen.yaml",
+      "hallazgos": 1
+    },
+    {
+      "nombre": "perf-regression.yaml",
+      "hallazgos": 2
+    },
+    {
+      "nombre": "release.yaml",
+      "hallazgos": 2
+    },
+    {
+      "nombre": "stale.yaml",
+      "hallazgos": 2
+    },
+    {
+      "nombre": "tests.yaml",
+      "hallazgos": 1
+    },
+    {
+      "nombre": "typos.yaml",
+      "hallazgos": 2
+    }
+  ],
+  "hallazgos": [
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "compat-checks.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "flamegraph.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "fuzz.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "generate-docs.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "generate-pgo.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "govulncheck.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "memogen.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "action_no_sha_pin",
+      "severidad": "high",
+      "archivo": "perf-regression.yaml",
+      "job": "perf-regression",
+      "step": "benchmark-action/github-action-benchmark@v1",
+      "detalle": "uses: benchmark-action/github-action-benchmark@v1  →  ref 'v1' no es SHA",
+      "descripcion": "Acción de tercero sin SHA commit fijado. Un atacante que comprometa el repositorio de la acción puede inyectar código malicioso sin cambiar el tag, como ocurrió en el ataque a tj-actions/changed-files (2025)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "perf-regression.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "action_no_sha_pin",
+      "severidad": "high",
+      "archivo": "release.yaml",
+      "job": "release",
+      "step": "docker/login-action@v4",
+      "detalle": "uses: docker/login-action@v4  →  ref 'v4' no es SHA",
+      "descripcion": "Acción de tercero sin SHA commit fijado. Un atacante que comprometa el repositorio de la acción puede inyectar código malicioso sin cambiar el tag, como ocurrió en el ataque a tj-actions/changed-files (2025)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "release.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "action_no_sha_pin",
+      "severidad": "high",
+      "archivo": "stale.yaml",
+      "job": "stale",
+      "step": "actions/stale@v10",
+      "detalle": "uses: actions/stale@v10  →  ref 'v10' no es SHA",
+      "descripcion": "Acción de tercero sin SHA commit fijado. Un atacante que comprometa el repositorio de la acción puede inyectar código malicioso sin cambiar el tag, como ocurrió en el ataque a tj-actions/changed-files (2025)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "stale.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "tests.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    },
+    {
+      "regla": "action_no_sha_pin",
+      "severidad": "high",
+      "archivo": "typos.yaml",
+      "job": "typos",
+      "step": "crate-ci/typos@v1.45.1",
+      "detalle": "uses: crate-ci/typos@v1.45.1  →  ref 'v1.45.1' no es SHA",
+      "descripcion": "Acción de tercero sin SHA commit fijado. Un atacante que comprometa el repositorio de la acción puede inyectar código malicioso sin cambiar el tag, como ocurrió en el ataque a tj-actions/changed-files (2025)."
+    },
+    {
+      "regla": "excessive_permissions",
+      "severidad": "medium",
+      "archivo": "typos.yaml",
+      "job": "(global)",
+      "step": "permissions",
+      "detalle": "No se define bloque 'permissions' a nivel de workflow (hereda del repositorio)",
+      "descripcion": "Workflow sin restricción de permisos o con write-all. Permisos excesivos amplían el radio de daño si el workflow es comprometido (patrón documentado en el ecosistema GitHub Actions 2024-2026)."
+    }
+  ]
+}
