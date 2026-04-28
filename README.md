@@ -37,7 +37,7 @@ ING.Datos-tarea4/
 │   ├── results/               # JSONs generados por el pipeline de análisis
 │   └── repos.json             # Manifiesto con los 5 repos objetivo de projectdiscovery
 ├── nbs/
-│   └── analisis_cuantitativo.ipynb  # Notebook con análisis cuantitativo y cualitativo
+│   └── analisis_de_vulnerabilidades.ipynb  # Notebook con análisis cuantitativo y cualitativo
 ├── scripts/                   # Pipeline de automatización
 │   ├── add_submodules.py      # Clona/sincroniza los repos objetivo (depth=1)
 │   ├── generate_sboms.py      # Genera SBOMs con Syft (inventario de dependencias)
@@ -118,7 +118,7 @@ Una vez generados los resultados en `data/results/`, analízalos abriendo el ent
 jupyter notebook
 ```
 
-Abre y ejecuta celda a celda: **`nbs/analisis_cuantitativo.ipynb`**
+Abre y ejecuta celda a celda: **`nbs/analisis_de_vulnerabilidades.ipynb`**
 
 El notebook contiene:
 - **Dimensión cuantitativa**: distribución de CVEs por severidad, heatmap comparativo entre repos, ecosistemas más vulnerables, top paquetes con mayor riesgo, hallazgos CI/CD por tipo de regla.
