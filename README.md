@@ -110,7 +110,7 @@ python scripts/generate_codeql.py
 
 ## 📊 Análisis en Jupyter Notebook
 
-> ⚠️ **REQUISITO PREVIO**: Asegúrate de haber ejecutado los scripts del pipeline (al menos los pasos 1, 2 y 3) antes de abrir el notebook. Si no lo haces, Pandas arrojará un error `KeyError: 'repositorio'` porque no encontrará los JSONs en la carpeta `data/results/`.
+> ⚠️ **REQUISITO PREVIO**: Asegúrate de haber ejecutado los scripts del pipeline (al menos los pasos 1, 2, 3 y 4) antes de abrir el notebook. Si no lo haces, Pandas arrojará errores de lectura (como `KeyError`) porque no encontrará los JSONs de dependencias ni de CI/CD en la carpeta `data/results/`.
 
 Una vez generados los resultados en `data/results/`, analízalos abriendo el entorno de Jupyter:
 
